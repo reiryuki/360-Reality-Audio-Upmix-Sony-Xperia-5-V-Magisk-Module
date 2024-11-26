@@ -31,7 +31,7 @@
 
 ## Known Issues
 - Sample music can't be played (requires ROM codec support)
-- Headphones selection does not have any effect (requires ROM audio hal support)
+- Headphones personalization does not have any effect (requires ROM audio hal support)
 - Camera capture to right and left ear can't be detected. Just retake and choose Manual Shooting.
 
 ## Optionals
