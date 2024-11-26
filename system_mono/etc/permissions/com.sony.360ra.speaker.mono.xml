@@ -1,1 +1,4 @@
-
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <feature name="com.sony.360ra.speaker.mono"/>
+</permissions>
