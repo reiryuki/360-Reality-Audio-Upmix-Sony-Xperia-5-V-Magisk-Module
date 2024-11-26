@@ -94,6 +94,7 @@ PKG=jp.co.sony.threesixtyra.settings
 pm grant $PKG android.permission.CAMERA
 if [ "$API" -ge 33 ]; then
   pm grant $PKG android.permission.POST_NOTIFICATIONS
+  appops set $PKG ACCESS_RESTRICTED_SETTINGS allow
 fi
 if [ "$API" -ge 30 ]; then
   appops set $PKG AUTO_REVOKE_PERMISSIONS_IF_UNUSED ignore
