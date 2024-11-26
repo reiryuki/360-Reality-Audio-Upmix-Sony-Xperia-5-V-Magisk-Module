@@ -7,6 +7,7 @@
 ## Descriptions
 - Equalizer sound effect ported from Sony Xperia 5 V (pdx237) and integrated as a Magisk Module for all supported and rooted devices with Magisk
 - Global type sound effect
+- Wireless Headphones is forced certified (so it doesn't mean your wireless headphone is originally certified)
 
 ## Sources
 - https://dumps.tadiphone.dev/dumps/sony/pdx237 sssi-user-14-67.1.A.2.229-1-release-keys
@@ -31,9 +32,10 @@
 ## Known Issues
 - Sample music can't be played (requires ROM codec support)
 - Headphones selection does not have any effect (requires ROM audio hal support)
-- Camera capture to right and left ear can't be detected. Just choose manual method.
+- Camera capture to right and left ear can't be detected. Just retake and choose Manual Shooting.
 
 ## Optionals
+- https://t.me/ryukinotes/44
 - Global: https://t.me/ryukinotes/35
 - Stream: https://t.me/androidryukimodsdiscussions/26764
 
