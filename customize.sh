@@ -292,9 +292,9 @@ hide_app
 if [ "`grep_prop tsra.mono $OPTIONALS`" == 1 ]; then
   ui_print "- Using mono speaker mode"
   cp -rf $MODPATH/system_mono/* $MODPATH/system
-  rm -rf $MODPATH/system_mono
   ui_print " "
 fi
+rm -rf $MODPATH/system_mono
 
 # stream mode
 FILE=$MODPATH/.aml.sh

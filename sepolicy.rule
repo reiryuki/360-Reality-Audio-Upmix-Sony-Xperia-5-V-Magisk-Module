@@ -5,7 +5,7 @@ allow system_server system_file file write
 create { system_lib_file vendor_file vendor_configs_file vendor_data_file threesixtyra_vendor_data_file }
 allow { system_file system_lib_file vendor_file vendor_configs_file vendor_data_file threesixtyra_vendor_data_file } labeledfs filesystem associate
 allow init { system_file system_lib_file vendor_file vendor_configs_file vendor_data_file threesixtyra_vendor_data_file } { dir file } relabelfrom
-permissive { system_app priv_app platform_app untrusted_app_29 untrusted_app_27 untrusted_app hal_audio_default mtk_hal_audio audioserver }
+permissive { priv_app untrusted_app_29 untrusted_app_27 untrusted_app hal_audio_default mtk_hal_audio audioserver }
 
 # dir
 allow { system_app priv_app platform_app untrusted_app_29 untrusted_app_27 untrusted_app } { vendor_data_file threesixtyra_vendor_data_file } dir { write search remove_name add_name }
