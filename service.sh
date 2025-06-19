@@ -91,37 +91,38 @@ fi
 
 # grant
 PKG=jp.co.sony.threesixtyra.settings
-pm grant $PKG android.permission.CAMERA
-if [ "$API" -ge 31 ]; then
-  appops set $PKG INTERACT_ACROSS_PROFILES allow
-fi
-if [ "$API" -ge 33 ]; then
-  pm grant $PKG android.permission.POST_NOTIFICATIONS
-  appops set $PKG ACCESS_RESTRICTED_SETTINGS allow
-fi
-if [ "$API" -ge 30 ]; then
-  appops set $PKG AUTO_REVOKE_PERMISSIONS_IF_UNUSED ignore
-fi
-PKGOPS=`appops get $PKG`
-UID=`dumpsys package $PKG 2>/dev/null | grep -m 1 Id= | sed -e 's|    userId=||g' -e 's|    appId=||g'`
-if [ "$UID" ] && [ "$UID" -gt 9999 ]; then
-  UIDOPS=`appops get --uid "$UID"`
+if appops get $PKG > /dev/null 2>&1; then
+  pm grant --all-permissions $PKG
+  if [ "$API" -ge 30 ]; then
+    appops set $PKG AUTO_REVOKE_PERMISSIONS_IF_UNUSED ignore
+  fi
+  if [ "$API" -ge 31 ]; then
+    appops set $PKG INTERACT_ACROSS_PROFILES allow
+  fi
+  if [ "$API" -ge 33 ]; then
+    appops set $PKG ACCESS_RESTRICTED_SETTINGS allow
+  fi
+  PKGOPS=`appops get $PKG`
+  UID=`dumpsys package $PKG 2>/dev/null | grep -m 1 Id= | sed -e 's|    userId=||g' -e 's|    appId=||g'`
+  if [ "$UID" ] && [ "$UID" -gt 9999 ]; then
+    UIDOPS=`appops get --uid "$UID"`
+  fi
 fi
 
 # grant
 PKG=jp.co.sony.threesixtyra.system
-if [ "$API" -ge 31 ]; then
-  pm grant $PKG android.permission.BLUETOOTH_CONNECT
-fi
-if [ "$API" -ge 30 ]; then
-  appops set $PKG MANAGE_EXTERNAL_STORAGE allow
-  appops set $PKG NO_ISOLATED_STORAGE allow
-  appops set $PKG AUTO_REVOKE_PERMISSIONS_IF_UNUSED ignore
-fi
-PKGOPS=`appops get $PKG`
-UID=`dumpsys package $PKG 2>/dev/null | grep -m 1 Id= | sed -e 's|    userId=||g' -e 's|    appId=||g'`
-if [ "$UID" ] && [ "$UID" -gt 9999 ]; then
-  UIDOPS=`appops get --uid "$UID"`
+if appops get $PKG > /dev/null 2>&1; then
+  pm grant --all-permissions $PKG
+  if [ "$API" -ge 30 ]; then
+    appops set $PKG MANAGE_EXTERNAL_STORAGE allow
+    appops set $PKG NO_ISOLATED_STORAGE allow
+    appops set $PKG AUTO_REVOKE_PERMISSIONS_IF_UNUSED ignore
+  fi
+  PKGOPS=`appops get $PKG`
+  UID=`dumpsys package $PKG 2>/dev/null | grep -m 1 Id= | sed -e 's|    userId=||g' -e 's|    appId=||g'`
+  if [ "$UID" ] && [ "$UID" -gt 9999 ]; then
+    UIDOPS=`appops get --uid "$UID"`
+  fi
 fi
 
 # audio flinger
