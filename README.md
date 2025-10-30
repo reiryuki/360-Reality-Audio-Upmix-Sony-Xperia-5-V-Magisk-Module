@@ -31,8 +31,9 @@
 
 ## Known Issues
 - Sample music can't be played (requires ROM codec support)
-- Headphones personalization does not have any effect (requires ROM audio hal support)
-- Camera capture to right and left ear can't be detected. Just retake and choose Manual Shooting.
+- You need to clear selection first if you change between headphones personalization to take effect
+- Camera capture to right and left ear can't be detected. Just Retake and choose MANUAL SHOOTING.
+- Camera issue if using KernelSU
 
 ## Optionals
 - https://t.me/ryukinotes/44
