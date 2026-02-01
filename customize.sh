@@ -483,6 +483,7 @@ else
 fi
 
 # run
+MODSYSTEM=/system
 . $MODPATH/copy.sh
 . $MODPATH/.aml.sh
 

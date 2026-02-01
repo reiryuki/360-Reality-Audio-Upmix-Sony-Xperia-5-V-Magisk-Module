@@ -7,6 +7,10 @@ set -x
 
 # var
 ABI=`getprop ro.product.cpu.abi`
+if [ ! -d $MODPATH/vendor ]\
+|| [ -L $MODPATH/vendor ]; then
+  MODSYSTEM=/system
+fi
 
 # function
 permissive() {
@@ -54,18 +58,10 @@ sepolicy_sh
 DIR=/data/vendor/360ra
 mkdir -p $DIR
 chmod 0775 $DIR
-if [ -L $MODPATH/system/vendor ]\
-&& [ -d $MODPATH/vendor ]; then
-  cp -f $MODPATH/vendor/etc/*.bin $DIR
-  cp -f $MODPATH/vendor/etc/*.hki* $DIR
-  cp -f $MODPATH/vendor/etc/tunedapp_list $DIR
-  cp -f $MODPATH/vendor/etc/*.ba $DIR
-else
-  cp -f $MODPATH/system/vendor/etc/*.bin $DIR
-  cp -f $MODPATH/system/vendor/etc/*.hki* $DIR
-  cp -f $MODPATH/system/vendor/etc/tunedapp_list $DIR
-  cp -f $MODPATH/system/vendor/etc/*.ba $DIR
-fi
+cp -f $MODPATH$MODSYSTEM/vendor/etc/*.bin $DIR
+cp -f $MODPATH$MODSYSTEM/vendor/etc/*.hki* $DIR
+cp -f $MODPATH$MODSYSTEM/vendor/etc/tunedapp_list $DIR
+cp -f $MODPATH$MODSYSTEM/vendor/etc/*.ba $DIR
 chmod 0770 $DIR/*
 chown -R 1041.1005 $DIR
 #chcon -R u:object_r:threesixtyra_vendor_data_file:s0 $DIR
@@ -79,28 +75,15 @@ for DIR in $DIRS; do
 done
 chcon -R u:object_r:system_lib_file:s0 $MODPATH/system/lib*
 chcon -R u:object_r:vendor_configs_file:s0 $MODPATH/system/odm/etc
-if [ -L $MODPATH/system/vendor ]\
-&& [ -d $MODPATH/vendor ]; then
-  FILES=`find $MODPATH/vendor/lib* -type f`
-  for FILE in $FILES; do
-    chmod 0644 $FILE
-    chown 0.0 $FILE
-  done
-  chcon -R u:object_r:vendor_file:s0 $MODPATH/vendor
-  chcon -R u:object_r:vendor_configs_file:s0 $MODPATH/vendor/etc
-  chcon -R u:object_r:vendor_configs_file:s0 $MODPATH/vendor/odm/etc
-  chcon -R u:object_r:vendor_overlay_file:s0 $MODPATH/vendor/overlay
-else
-  FILES=`find $MODPATH/system/vendor/lib* -type f`
-  for FILE in $FILES; do
-    chmod 0644 $FILE
-    chown 0.0 $FILE
-  done
-  chcon -R u:object_r:vendor_file:s0 $MODPATH/system/vendor
-  chcon -R u:object_r:vendor_configs_file:s0 $MODPATH/system/vendor/etc
-  chcon -R u:object_r:vendor_configs_file:s0 $MODPATH/system/vendor/odm/etc
-  chcon -R u:object_r:vendor_overlay_file:s0 $MODPATH/system/vendor/overlay
-fi
+FILES=`find $MODPATH$MODSYSTEM/vendor/lib* -type f`
+for FILE in $FILES; do
+  chmod 0644 $FILE
+  chown 0.0 $FILE
+done
+chcon -R u:object_r:vendor_file:s0 $MODPATH$MODSYSTEM/vendor
+chcon -R u:object_r:vendor_configs_file:s0 $MODPATH$MODSYSTEM/vendor/etc
+chcon -R u:object_r:vendor_configs_file:s0 $MODPATH$MODSYSTEM/vendor/odm/etc
+chcon -R u:object_r:vendor_overlay_file:s0 $MODPATH$MODSYSTEM/vendor/overlay
 
 # function
 mount_odm() {
