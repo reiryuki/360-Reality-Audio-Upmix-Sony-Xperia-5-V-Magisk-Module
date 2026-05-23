@@ -11,12 +11,16 @@
 
 ## Sources
 - https://dumps.tadiphone.dev/dumps/sony/pdx237 sssi-user-14-67.1.A.2.229-1-release-keys
-- libmagiskpolicy.so: Kitsune Mask R6687BB53
+- libmagiskpolicy.so: Magisk (stable) 30.7 (30700)
 
 ## Screenshots
-- https://t.me/ryukimodsscreenshots/26
+https://t.me/ryukimodsscreenshots/26
 
 ## Changelog
+
+v0.8
+- Update libmagiskpolicy.so from Magisk (stable) 30.7 (30700)
+- Fix selinux denials
 
 v0.7
 - Does not disable raw playback (You can use Audio Compatibility Patch Reborn Magisk Module instead)
@@ -52,8 +56,8 @@ v0.1
 - Magisk or Kitsune Mask or KernelSU or Apatch installed
 
 ## Installation Guide & Download Link
-- If you are using KernelSU, you need to disable Unmount Modules by Default in KernelSU app settings and install https://github.com/KernelSU-Modules-Repo/meta-overlayfs first
-- Install this module https://devuploads.com/d194tbnulu0b via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
+- If you are using KernelSU, you need to disable Unmount Modules by Default in KernelSU app settings and install https://github.com/KernelSU-Modules-Repo/meta-overlayfs or https://github.com/KernelSU-Modules-Repo/magic_mount_rs or https://github.com/KernelSU-Modules-Repo/hybrid_mount first depending on ROM compatibility
+- Install this module via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
 - Install AML Magisk Module https://t.me/ryukinotes/34 only if using any other else audio mod module
 - Reboot
 - If you are using KernelSU, you need to allow superuser list manually all package name listed in package.txt (and your home launcher app also) (enable show system apps) and reboot afterwards
@@ -64,6 +68,7 @@ v0.1
 - You need to clear selection first if you change between headphones personalization to take effect
 - Camera capture to right and left ear can't be detected. Just Retake and choose MANUAL SHOOTING.
 - Camera issue if using KernelSU
+- Download data failure in Personalized Hearing Profile. I don't know why, maybe the server has been taken down.
 
 ## Optionals
 - https://t.me/ryukinotes/44
@@ -71,7 +76,7 @@ v0.1
 - Stream: https://t.me/ryukinotes/52
 
 ## Troubleshootings
-- Global: https://t.me/ryukinotes/34
+Global: https://t.me/ryukinotes/34
 
 ## Support & Bug Report
 - https://t.me/ryukinotes/54
@@ -85,6 +90,6 @@ v0.1
 - You can contribute ideas about this Magisk Module here: https://t.me/androidappsportdevelopment
 
 ## Sponsors
-- https://t.me/ryukinotes/25
+https://t.me/ryukinotes/25
 
 
