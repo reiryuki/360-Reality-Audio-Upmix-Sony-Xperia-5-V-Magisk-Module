@@ -23,6 +23,7 @@ v0.9
 - Fix a crash at boot
 - Fix selinux denial
 - Support NoMount metamodule
+- Move _uninstall.log to /data/adb/logs/
 
 v0.8
 - Update libmagiskpolicy.so from Magisk (stable) 30.7 (30700)
