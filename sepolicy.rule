@@ -14,6 +14,7 @@ allow { hal_audio_default mtk_hal_audio audioserver } { vendor_data_file threesi
 allow { system_app priv_app platform_app untrusted_app_29 untrusted_app_27 untrusted_app } { vendor_data_file threesixtyra_vendor_data_file } file { write unlink create open setattr getattr }
 allow { hal_audio_default mtk_hal_audio audioserver } { vendor_data_file threesixtyra_vendor_data_file } file { getattr read open }
 allow crash_dump vendor_overlay_file file read
+allow crash_dump tmpfs file write
 
 # additional
 allow { hal_audio_default mtk_hal_audio audioserver } { system_suspend_hwservice default_android_hwservice } hwservice_manager find

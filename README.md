@@ -18,6 +18,12 @@ https://t.me/ryukimodsscreenshots/26
 
 ## Changelog
 
+v0.9
+- Change module ID to ThreeSixtyRA
+- Fix a crash at boot
+- Fix selinux denials
+- Support NoMount metamodule
+
 v0.8
 - Update libmagiskpolicy.so from Magisk (stable) 30.7 (30700)
 - Fix selinux denials
@@ -30,7 +36,7 @@ v0.6
 
 v0.5
 - Tidy up aml.sh
-- Exclude audioeffectshaptic.xml
+- Exclude \*audio\*effects\*haptic\*.xml
 - Abort installation if fail to mount mirror system
 - Fix wrong file permissions in some ROMs
 
@@ -56,8 +62,8 @@ v0.1
 - Magisk or Kitsune Mask or KernelSU or Apatch installed
 
 ## Installation Guide & Download Link
-- If you are using KernelSU, you need to disable Unmount Modules by Default in KernelSU app settings and install https://github.com/KernelSU-Modules-Repo/meta-overlayfs or https://github.com/KernelSU-Modules-Repo/magic_mount_rs or https://github.com/KernelSU-Modules-Repo/hybrid_mount first depending on ROM compatibility
-- Install this module https://devuploads.com/rcnnby3i4qyy via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
+- If you are using KernelSU, you need to disable Unmount Modules by Default in KernelSU app settings and install https://github.com/KernelSU-Modules-Repo/meta-overlayfs or https://github.com/KernelSU-Modules-Repo/magic_mount_rs or https://github.com/KernelSU-Modules-Repo/hybrid_mount or https://github.com/maxsteeel/nomount first depending on ROM compatibility
+- Install this module via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
 - Install AML Magisk Module https://t.me/ryukinotes/34 only if using any other else audio mod module
 - Reboot
 - If you are using KernelSU, you need to allow superuser list manually all package name listed in package.txt (and your home launcher app also) (enable show system apps) and reboot afterwards

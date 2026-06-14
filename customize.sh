@@ -214,6 +214,36 @@ if [ "`grep_prop mod.ui $OPTIONALS`" == 1 ]; then
   ui_print " "
 fi
 
+# extract
+unused() {
+ui_print "- Extracting..."
+APP=ThreeSixtyRASystem
+FILE=`find $MODPATH/system -type f -name $APP.apk`
+DIR=$MODPATH/system/vendor/etc/360ra
+DES=res/r_
+unzip -d $TMPDIR -o $FILE $DES
+cp -f $TMPDIR/$DES $DIR/tunedapp_list
+DES=res/Qn.bin
+unzip -d $TMPDIR -o $FILE $DES
+cp -f $TMPDIR/$DES $DIR/upl.cinema.bin
+DES=res/Dx.bin
+unzip -d $TMPDIR -o $FILE $DES
+cp -f $TMPDIR/$DES $DIR/upl.music.bin
+DES=res/Gz1.bin
+unzip -d $TMPDIR -o $FILE $DES
+cp -f $TMPDIR/$DES $DIR/upmix.cinema.hpp.bin
+DES=res/Gz.bin
+unzip -d $TMPDIR -o $FILE $DES
+cp -f $TMPDIR/$DES $DIR/upmix.cinema.hps.bin
+DES=res/qZ.bin
+unzip -d $TMPDIR -o $FILE $DES
+cp -f $TMPDIR/$DES $DIR/upmix.music.hpp.bin
+DES=res/aA.bin
+unzip -d $TMPDIR -o $FILE $DES
+cp -f $TMPDIR/$DES $DIR/upmix.music.hps.bin
+ui_print " "
+}
+
 # cleaning
 ui_print "- Cleaning..."
 PKGS=`cat $MODPATH/package.txt`
@@ -228,6 +258,36 @@ fi
 rm -rf $MODPATH/unused
 remove_sepolicy_rule
 ui_print " "
+
+# function
+conflict() {
+for NAME in $NAMES; do
+  DIR=/data/adb/modules_update/$NAME
+  if [ -f $DIR/uninstall.sh ]; then
+    sh $DIR/uninstall.sh
+  fi
+  rm -rf $DIR
+  DIR=/data/adb/modules/$NAME
+  rm -f $DIR/update
+  touch $DIR/remove
+  FILE=/data/adb/modules/$NAME/uninstall.sh
+  if [ -f $FILE ]; then
+    sh $FILE
+    rm -f $FILE
+  fi
+  rm -rf /metadata/magisk/$NAME\
+   /mnt/vendor/persist/magisk/$NAME\
+   /persist/magisk/$NAME\
+   /data/unencrypted/magisk/$NAME\
+   /cache/magisk/$NAME\
+   /cust/magisk/$NAME\
+   /klogdump/magisk/$NAME
+done
+}
+
+# conflict
+NAMES=360RealityAudio
+conflict
 
 # function
 cleanup() {
