@@ -21,7 +21,7 @@ https://t.me/ryukimodsscreenshots/26
 v0.9
 - Change module ID to ThreeSixtyRA
 - Fix a crash at boot
-- Fix selinux denials
+- Fix selinux denial
 - Support NoMount metamodule
 
 v0.8
